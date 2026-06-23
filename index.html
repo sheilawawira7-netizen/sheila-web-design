@@ -36,7 +36,7 @@
         /* --- High-End Luxury Hero Header --- */
         header {
             color: white;
-            padding: 120px 20px;
+            padding: 140px 20px;
             text-align: center;
             border-bottom: 5px solid var(--accent);
             position: relative;
@@ -67,24 +67,127 @@
         header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 54px;
-            margin: 0 0 10px 0;
+            margin: 0 0 15px 0;
             line-height: 1.1;
+            letter-spacing: -0.5px;
         }
 
         header p {
             font-size: 18px;
             max-width: 600px;
             margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* --- Main Content Layout --- */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 15px auto 0 auto;
+        }
+
+        /* --- Signature Frameworks Grid Section --- */
+        .frameworks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .framework-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 4px;
+            border: 1px solid var(--accent-light);
+            box-shadow: 0 4px 20px rgba(30, 22, 22, 0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(30, 22, 22, 0.05);
+        }
+
+        .framework-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .framework-card p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        /* --- Footer Layout --- */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+            letter-spacing: 1px;
             opacity: 0.9;
         }
     </style>
 </head>
 <body>
 
+    <!-- Premium Hero Section -->
     <header>
         <h1>SheShe Web Studio</h1>
         <p>Crafting high-end, visual digital experiences with a premium aesthetic.</p>
     </header>
+
+    <!-- Main Dynamic Content Portfolio -->
+    <main>
+        <h2 class="section-title">Signature Frameworks</h2>
+        
+        <div class="frameworks-grid">
+            <!-- Framework Item 1 -->
+            <div class="framework-card">
+                <h3>Visual Identity</h3>
+                <p>Curating high-end digital styling, luxury typography pairing, and bespoke color palettes that tell a compelling brand story from the very first glance.</p>
+            </div>
+
+            <!-- Framework Item 2 -->
+            <div class="framework-card">
+                <h3>Responsive Design</h3>
+                <p>Engineering interface architectural flows that fluidly adjust across all modern screen resolutions, balancing absolute aesthetics with perfect logic.</p>
+            </div>
+
+            <!-- Framework Item 3 -->
+            <div class="framework-card">
+                <h3>Digital Experience</h3>
+                <p>Constructing deliberate interaction animations and structural depth layers designed to elevate normal interactions into artistic digital journeys.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Clean Footer Anchor -->
+    <footer>
+        &copy; 2026 SheShe Web Studio. All Rights Reserved.
+    </footer>
 
 </body>
 </html>
