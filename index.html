@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <title>SheShe Web Studio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts for High-End Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="family">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
 
     <style>
         /* Modern Color Palette & Variables */
         :root {
             --bg-color: #faf6f0;       /* Soft luxury cream background */
-            --primary: #2d2424;        /* Deep, rich dark espresso brown/black */
+            --primary: #1e1616;        /* Deep, rich dark espresso */
             --accent: #d4a373;         /* Subtle, warm golden tan/amber */
+            --accent-light: #f4eae1;   /* Light tint of the accent color */
             --card-bg: #ffffff;        /* Pure white for depth contrast */
             --text-muted: #6e655f;     /* Elegant muted soft gray-brown */
-            --gradient: linear-gradient(135deg, #2d2424 0%, #4a3b32 100%);
+            --gradient: linear-gradient(135deg, #1e1616 0%, #3a2e2b 100%);
         }
 
         * {
@@ -29,92 +31,172 @@
             background: var(--bg-color);
             color: var(--primary);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Luxury Header and Hero Banner */
+        /* Animated, High-End Luxury Hero Header */
         header {
             background: var(--gradient);
             color: white;
-            padding: 90px 20px;
+            padding: 120px 20px;
             text-align: center;
-            border-bottom: 4px solid var(--accent);
+            border-bottom: 5px solid var(--accent);
             position: relative;
             overflow: hidden;
+        }
+
+        /* Decorative background elements to create movement and depth */
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 163, 115, 0.15) 0%, transparent 60%);
+            animation: drift 15s infinite linear;
+            z-index: 1;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(to top, rgba(30, 22, 22, 0.4), transparent);
+            z-index: 2;
+        }
+
+        @keyframes drift {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Container to keep header text sharp and above background graphics */
+        .header-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
             margin: 0;
-            font-size: 46px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         header p {
-            margin-top: 15px;
-            font-size: 18px;
+            margin-top: 20px;
+            font-size: 20px;
             color: #e6dfd9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
             font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
+        .header-tag {
+            display: inline-block;
+            background: rgba(212, 163, 115, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        /* Section Layouts */
         section {
-            padding: 60px 20px;
-            max-width: 1000px;
+            padding: 80px 20px;
+            max-width: 1100px;
             margin: auto;
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
+            font-size: 36px;
             color: var(--primary);
-            margin-bottom: 25px;
+            margin-bottom: 35px;
             position: relative;
             display: inline-block;
         }
 
-        /* Subtle line accent under titles */
         h2::after {
             content: '';
             display: block;
-            width: 40px;
+            width: 50px;
             height: 3px;
             background: var(--accent);
-            margin-top: 8px;
+            margin-top: 10px;
             border-radius: 2px;
         }
 
-        /* Grid Layouts */
-        .grid-3 {
+        /* Grid Frameworks */
+        .grid-2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        /* Reusable Card Styles */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Ultra-Premium Card Architecture */
         .card {
             background: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(74, 59, 50, 0.05);
-            border: 1px solid rgba(212, 163, 115, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 40px 35px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(30, 22, 22, 0.03);
+            border: 1px solid rgba(212, 163, 115, 0.12);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(74, 59, 50, 0.1);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(30, 22, 22, 0.08);
+            border-color: rgba(212, 163, 115, 0.4);
+        }
+
+        /* Subtle top highlight bar on hover */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
         }
 
         .about-text {
-            font-size: 17px;
+            font-size: 18px;
             color: var(--primary);
+            font-weight: 400;
+            margin: 0;
         }
 
-        /* Services Custom List Style */
+        /* Custom Services List Showcase */
         .services-list {
             list-style: none;
             padding: 0;
@@ -122,17 +204,24 @@
         }
 
         .services-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f0eae1;
-            font-weight: 500;
+            padding: 16px 0;
+            border-bottom: 1px solid #f3ede4;
+            font-weight: 600;
+            font-size: 17px;
             display: flex;
             align-items: center;
+            transition: padding-left 0.3s ease;
+        }
+
+        .services-list li:hover {
+            padding-left: 8px;
+            color: var(--accent);
         }
 
         .services-list li::before {
             content: "✦";
             color: var(--accent);
-            margin-right: 12px;
+            margin-right: 14px;
             font-size: 14px;
         }
 
@@ -140,93 +229,106 @@
             border-bottom: none;
             color: var(--text-muted);
             font-style: italic;
+            font-weight: 400;
         }
 
-        /* Visual Showcase / Portfolio Layout */
+        /* Portfolio Showcase Elements */
         .portfolio-image-placeholder {
             width: 100%;
-            height: 180px;
+            height: 220px;
             background: #eae3da;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 14px;
-            font-weight: 500;
+            border-radius: 14px;
+            margin-bottom: 20px;
             background-size: cover;
             background-position: center;
-            border: 1px dashed var(--accent);
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .portfolio-image-placeholder {
+            transform: scale(1.03);
         }
 
         .sample-title {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            margin: 10px 0 5px 0;
+            font-size: 22px;
+            margin: 15px 0 8px 0;
             color: var(--primary);
         }
 
         .sample-desc {
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text-muted);
             margin: 0;
         }
 
-        /* Contact Section Specifics */
+        /* Clean Contact Section Layout */
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            header h1 { font-size: 40px; }
         }
 
         .contact-link {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 15px;
-            background: #fdfcfb;
+            gap: 15px;
+            padding: 18px 24px;
+            background: #fffbf7;
             border: 1px solid #eee7dd;
-            border-radius: 10px;
+            border-radius: 14px;
             color: var(--primary);
             text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 12px;
-            transition: background 0.2s ease;
+            font-weight: 600;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
         }
 
         .contact-link:hover {
-            background: #f5eee4;
+            background: var(--accent-light);
+            border-color: var(--accent);
+            transform: translateX(4px);
         }
 
-        /* Luxury Call-To-Action Button */
+        /* High-End Interactive Call-To-Action Button */
         .btn {
-            display: inline-block;
+            display: block;
             background: var(--primary);
             color: white;
-            padding: 14px 28px;
+            padding: 18px 32px;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-weight: 600;
             letter-spacing: 0.5px;
-            transition: background 0.2s ease, transform 0.2s ease;
-            box-shadow: 0 4px 12px rgba(45, 36, 36, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(30, 22, 22, 0.2);
             text-align: center;
             width: 100%;
+            border: 1px solid transparent;
         }
 
         .btn:hover {
-            background: #4a3b32;
-            transform: scale(1.02);
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(30, 22, 22, 0.05);
         }
 
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
             background: var(--primary);
-            color: #c4b9b0;
+            color: #a89e96;
             font-size: 14px;
-            border-top: 3px solid var(--accent);
+            border-top: 4px solid var(--accent);
             letter-spacing: 0.5px;
         }
     </style>
@@ -235,79 +337,90 @@
 <body>
 
 <header>
-    <h1>SheShe Web Studio</h1>
-    <p>Crafting simple, luxury-styled modern websites that help small businesses command attention online.</p>
+    <div class="header-content">
+        <span class="header-tag">Digital Craftsmanship</span>
+        <h1>SheShe Web Studio</h1>
+        <p>Designing modern, luxury-styled digital spaces that empower small brands to stand out and scale online.</p>
+    </div>
 </header>
 
-<section>
-    <h2>About Me</h2>
-    <div class="card">
-        <p class="about-text">
-            I design clean, high-end, and completely affordable digital spaces for small businesses. By balancing elegant minimalist layouts with strong visual hierarchies, my focus is to strip away the clutter and highlight exactly what makes your brand stand out.
-        </p>
-    </div>
-</section>
-
-<section>
-    <h2>Services</h2>
-    <div class="card">
-        <ul class="services-list">
-            <li>Bespoke Business Websites</li>
-            <li>High-Converting Landing Pages</li>
-            <li>Artistic Portfolio Display Spaces</li>
-            <li>E-Commerce Design & Online Boutiques (Coming Soon)</li>
-        </ul>
-    </div>
-</section>
-
-<section>
-    <h2>Our Signature Frameworks</h2>
-    <div class="grid-3">
-        <div class="card">
-            <div class="portfolio-image-placeholder" style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=500&auto=format&fit=crop'); border: none;">
+<main>
+    <section>
+        <div class="grid-2">
+            <div>
+                <h2>The Vision</h2>
+                <div class="card">
+                    <p class="about-text">
+                        I build thoughtful, clean, and highly intentional websites for local businesses. By shifting away from busy templates and focusing on elegant structure, typography, and visual balance, I help your brand leave an unforgettable digital impression.
+                    </p>
                 </div>
-            <h3 class="sample-title">The Parlor Aesthetic</h3>
-            <p class="sample-desc">Tailored, elegant frameworks designed specifically for luxury nail salons, wellness spas, and beauty spaces.</p>
-        </div>
+            </div>
 
-        <div class="card">
-            <div class="portfolio-image-placeholder" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=500&auto=format&fit=crop'); border: none;">
+            <div>
+                <h2>Services</h2>
+                <div class="card">
+                    <ul class="services-list">
+                        <li>Bespoke Business Identity Sites</li>
+                        <li>High-Converting Landing Pages</li>
+                        <li>Artistic Showcase & Portfolio Spaces</li>
+                        <li>E-Commerce Design & Online Boutiques (Coming Soon)</li>
+                    </ul>
                 </div>
-            <h3 class="sample-title">The Culinary Layout</h3>
-            <p class="sample-desc">Visual, immersive menus and booking landing pages built for local gourmet restaurants and boutique cafes.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-            <div class="portfolio-image-placeholder" style="background-image: url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=500&auto=format&fit=crop'); border: none;">
-                </div>
-            <h3 class="sample-title">The Curated Closet</h3>
-            <p class="sample-desc">Clean, grid-based catalogs curated intentionally for thrift collectives, artisan crafts, and apparel lines.</p>
+    <section>
+        <h2>Signature Frameworks</h2>
+        <div class="grid-3">
+            <!-- Sample Item 1 -->
+            <div class="card">
+                <div class="portfolio-image-placeholder" style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=500&auto=format&fit=crop');"></div>
+                <h3 class="sample-title">The Parlor Aesthetic</h3>
+                <p class="sample-desc">Tailored, elegant layouts designed specifically for premium nail salons, wellness spas, and beauty spaces.</p>
+            </div>
+
+            <!-- Sample Item 2 -->
+            <div class="card">
+                <div class="portfolio-image-placeholder" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=500&auto=format&fit=crop');"></div>
+                <h3 class="sample-title">The Culinary Layout</h3>
+                <p class="sample-desc">Visual, immersive menus and booking landing pages built for local gourmet restaurants and boutique cafes.</p>
+            </div>
+
+            <!-- Sample Item 3 -->
+            <div class="card">
+                <div class="portfolio-image-placeholder" style="background-image: url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=500&auto=format&fit=crop');"></div>
+                <h3 class="sample-title">The Curated Closet</h3>
+                <p class="sample-desc">Clean, grid-based catalogs curated intentionally for thrift collectives, artisan crafts, and apparel lines.</p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="contact">
-    <h2>Let’s Build Something Beautiful</h2>
-    <div class="card contact-container">
-        <div>
-            <p style="margin-top:0; color:var(--text-muted);">Ready to scale your digital presence? Reach out directly via email or chat to map out your layout configuration.</p>
+    <section class="contact">
+        <h2>Let’s Build Something Beautiful</h2>
+        <div class="card contact-container">
+            <div>
+                <p style="margin-top:0; margin-bottom:25px; color:var(--text-muted); font-size:16px;">
+                    Ready to elevate your online storefront? Drop a line directly via email or reach out instantly over chat to break down your concept.
+                </p>
+                
+                <a class="contact-link" href="https://wa.me/254713965672?text=Hello!%20I'm%20interested%20in%20your%20web%20design%20services%20for%20my%20business." target="_blank">
+                    📱 <span>WhatsApp: +254 713 965672</span>
+                </a>
+
+                <a class="contact-link" href="mailto:Sheilawawira7@gmail.com">
+                    📧 <span>Email: Sheilawawira7@gmail.com</span>
+                </a>
+            </div>
             
-            <a class="contact-link" href="https://wa.me/254713965672?text=Hello!%20I'm%20interested%20in%20your%20web%20design%20services%20for%20my%20business." target="_blank">
-    📱 <span>WhatsApp: +254 713 965672</span>
-</a>
-
-            <a class="contact-link" href="mailto:Sheilawawira7@gmail.com">
-                📧 <span>Email: Sheilawawira7@gmail.com</span>
-            </a>
+            <div>
+                <a class="btn" href="https://wa.me/254713965672?text=Hello!%20I'm%20interested%20in%20your%20web%20design%20services%20for%20my%20business." target="_blank">
+                    Start Your Project Call
+                </a>
+            </div>
         </div>
-        
-        <div style="display: flex; align-items: center; justify-content: center;">
-            <a class="btn" href="https://wa.me/254713965672"?text=Hello!%20I'm%20interested%20in target="_blank">
-                Start Your Project Call
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
+</main>
 
 <footer>
     © 2026 SheShe Web Studio. Handcrafted for small businesses. All rights reserved.
