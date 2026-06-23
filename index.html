@@ -4,74 +4,230 @@
     <meta charset="UTF-8">
     <title>SheShe Web Studio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="family">
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f9f9f9;
-            color: #333;
+        /* Modern Color Palette & Variables */
+        :root {
+            --bg-color: #faf6f0;       /* Soft luxury cream background */
+            --primary: #2d2424;        /* Deep, rich dark espresso brown/black */
+            --accent: #d4a373;         /* Subtle, warm golden tan/amber */
+            --card-bg: #ffffff;        /* Pure white for depth contrast */
+            --text-muted: #6e655f;     /* Elegant muted soft gray-brown */
+            --gradient: linear-gradient(135deg, #2d2424 0%, #4a3b32 100%);
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            background: var(--bg-color);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        /* Luxury Header and Hero Banner */
         header {
-            background: #111;
+            background: var(--gradient);
             color: white;
-            padding: 40px 20px;
+            padding: 90px 20px;
             text-align: center;
+            border-bottom: 4px solid var(--accent);
+            position: relative;
+            overflow: hidden;
         }
 
         header h1 {
+            font-family: 'Playfair Display', serif;
             margin: 0;
-            font-size: 32px;
+            font-size: 46px;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
         header p {
-            margin-top: 10px;
-            font-size: 16px;
-            color: #ccc;
+            margin-top: 15px;
+            font-size: 18px;
+            color: #e6dfd9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
         }
 
         section {
-            padding: 40px 20px;
-            max-width: 900px;
+            padding: 60px 20px;
+            max-width: 1000px;
             margin: auto;
         }
 
         h2 {
-            color: #111;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
         }
 
-        .card {
-            background: white;
-            padding: 20px;
-            margin-top: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .contact a {
+        /* Subtle line accent under titles */
+        h2::after {
+            content: '';
             display: block;
-            margin: 8px 0;
-            color: #111;
-            text-decoration: none;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            margin-top: 8px;
+            border-radius: 2px;
         }
 
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        /* Reusable Card Styles */
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(74, 59, 50, 0.05);
+            border: 1px solid rgba(212, 163, 115, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(74, 59, 50, 0.1);
+        }
+
+        .about-text {
+            font-size: 17px;
+            color: var(--primary);
+        }
+
+        /* Services Custom List Style */
+        .services-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .services-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0eae1;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .services-list li::before {
+            content: "✦";
+            color: var(--accent);
+            margin-right: 12px;
+            font-size: 14px;
+        }
+
+        .services-list li:last-child {
+            border-bottom: none;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Visual Showcase / Portfolio Layout */
+        .portfolio-image-placeholder {
+            width: 100%;
+            height: 180px;
+            background: #eae3da;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            background-size: cover;
+            background-position: center;
+            border: 1px dashed var(--accent);
+        }
+
+        .sample-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            margin: 10px 0 5px 0;
+            color: var(--primary);
+        }
+
+        .sample-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Contact Section Specifics */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: #fdfcfb;
+            border: 1px solid #eee7dd;
+            border-radius: 10px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 12px;
+            transition: background 0.2s ease;
+        }
+
+        .contact-link:hover {
+            background: #f5eee4;
+        }
+
+        /* Luxury Call-To-Action Button */
         .btn {
             display: inline-block;
-            background: black;
+            background: var(--primary);
             color: white;
-            padding: 10px 15px;
-            margin-top: 10px;
+            padding: 14px 28px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: background 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(45, 36, 36, 0.2);
+            text-align: center;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #4a3b32;
+            transform: scale(1.02);
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            background: #111;
-            color: white;
-            margin-top: 40px;
+            padding: 40px 20px;
+            background: var(--primary);
+            color: #c4b9b0;
+            font-size: 14px;
+            border-top: 3px solid var(--accent);
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
@@ -80,15 +236,14 @@
 
 <header>
     <h1>SheShe Web Studio</h1>
-    <p>Simple, modern websites that help small businesses grow online</p>
+    <p>Crafting simple, luxury-styled modern websites that help small businesses command attention online.</p>
 </header>
 
 <section>
     <h2>About Me</h2>
     <div class="card">
-        <p>
-            I design clean and affordable websites for small businesses to help them attract more customers online.
-            My focus is simplicity, clarity, and creating a strong online presence that works.
+        <p class="about-text">
+            I design clean, high-end, and completely affordable digital spaces for small businesses. By balancing elegant minimalist layouts with strong visual hierarchies, my focus is to strip away the clutter and highlight exactly what makes your brand stand out.
         </p>
     </div>
 </section>
@@ -96,51 +251,66 @@
 <section>
     <h2>Services</h2>
     <div class="card">
-        <ul>
-            <li>Business Websites</li>
-            <li>Landing Pages</li>
-            <li>Portfolio Websites</li>
-            <li>Basic Online Stores (coming soon)</li>
+        <ul class="services-list">
+            <li>Bespoke Business Websites</li>
+            <li>High-Converting Landing Pages</li>
+            <li>Artistic Portfolio Display Spaces</li>
+            <li>E-Commerce Design & Online Boutiques (Coming Soon)</li>
         </ul>
     </div>
 </section>
 
 <section>
-    <h2>My Work (Samples Coming Soon)</h2>
-    <div class="card">
-        <p>
-            I am currently building sample projects for:
-        </p>
-        <ul>
-            <li>Nail Salon Website</li>
-            <li>Restaurant Website</li>
-            <li>Thrift Shop Website</li>
-        </ul>
-        <p>Links will be added here soon.</p>
+    <h2>Our Signature Frameworks</h2>
+    <div class="grid-3">
+        <div class="card">
+            <div class="portfolio-image-placeholder" style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=500&auto=format&fit=crop'); border: none;">
+                </div>
+            <h3 class="sample-title">The Parlor Aesthetic</h3>
+            <p class="sample-desc">Tailored, elegant frameworks designed specifically for luxury nail salons, wellness spas, and beauty spaces.</p>
+        </div>
+
+        <div class="card">
+            <div class="portfolio-image-placeholder" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=500&auto=format&fit=crop'); border: none;">
+                </div>
+            <h3 class="sample-title">The Culinary Layout</h3>
+            <p class="sample-desc">Visual, immersive menus and booking landing pages built for local gourmet restaurants and boutique cafes.</p>
+        </div>
+
+        <div class="card">
+            <div class="portfolio-image-placeholder" style="background-image: url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=500&auto=format&fit=crop'); border: none;">
+                </div>
+            <h3 class="sample-title">The Curated Closet</h3>
+            <p class="sample-desc">Clean, grid-based catalogs curated intentionally for thrift collectives, artisan crafts, and apparel lines.</p>
+        </div>
     </div>
 </section>
 
 <section class="contact">
-    <h2>Contact Me</h2>
-    <div class="card">
+    <h2>Let’s Build Something Beautiful</h2>
+    <div class="card contact-container">
+        <div>
+            <p style="margin-top:0; color:var(--text-muted);">Ready to scale your digital presence? Reach out directly via email or chat to map out your layout configuration.</p>
+            
+            <a class="contact-link" href="https://wa.me/254713965672" target="_blank">
+                📱 <span>WhatsApp: +254 713 965672</span>
+            </a>
 
-        <a href="https://wa.me/254713965672" target="_blank">
-            📱 WhatsApp: 0713 965 672
-        </a>
-
-        <a href="mailto:Sheilawawira7@gmail.com">
-            📧 Email: Sheilawawira7@gmail.com
-        </a>
-
-        <a class="btn" href="https://wa.me/254713965672" target="_blank">
-            Message Me on WhatsApp
-        </a>
-
+            <a class="contact-link" href="mailto:Sheilawawira7@gmail.com">
+                📧 <span>Email: Sheilawawira7@gmail.com</span>
+            </a>
+        </div>
+        
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <a class="btn" href="https://wa.me/254713965672" target="_blank">
+                Start Your Project Call
+            </a>
+        </div>
     </div>
 </section>
 
 <footer>
-    © 2026 SheShe Web Studio. All rights reserved.
+    © 2026 SheShe Web Studio. Handcrafted for small businesses. All rights reserved.
 </footer>
 
 </body>
